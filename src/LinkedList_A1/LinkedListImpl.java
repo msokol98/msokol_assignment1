@@ -79,7 +79,37 @@ public class LinkedListImpl implements LIST_Interface {
 	@Override
 	public boolean insort(double elt) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		Node newNode = new Node(elt);
+		
+		if(headCell == null || headCell.getData() > newNode.getData()) {
+			newNode.next = headCell;
+			headCell = newNode;
+			return goodInsert();
+		}
+		
+		
+		Node currentNode = headCell;
+		
+		while(currentNode.next != null &&
+				currentNode.next.getData() <= newNode.getData()) {
+			currentNode = currentNode.next;
+		}
+		
+		if(currentNode.next != null) { // if not last
+			currentNode.next.prev = newNode;
+			newNode.prev = currentNode;
+			newNode.next = currentNode.next;
+			currentNode.next = newNode;
+			return goodInsert();
+		} else { // being here means it's last
+			newNode.prev = currentNode;
+			newNode.next = currentNode.next;
+			currentNode.next = newNode;
+			lastCell = newNode;
+			return goodInsert();
+		}
+		
 	}
 
 	@Override

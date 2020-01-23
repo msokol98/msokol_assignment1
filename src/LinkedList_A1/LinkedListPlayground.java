@@ -7,16 +7,12 @@ public class LinkedListPlayground {
 		
 		LinkedListImpl myList = new LinkedListImpl();
 		
-		myList.insert(2, 0);
-		myList.insert(5, 1);
-		myList.insert(8, 0);
-		myList.insert(92, 1);
-		myList.insert(20, 4);
+		for(int i = 0; i < 15; i++) {
+			myList.insort(new Random().nextInt(20));
+		}
 		
-		// 8, 92, 2, 5
-		
-		myList.remove(2);
 		printList(myList);
+		
 
 	}
 
