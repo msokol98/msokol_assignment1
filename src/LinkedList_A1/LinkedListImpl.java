@@ -85,7 +85,32 @@ public class LinkedListImpl implements LIST_Interface {
 	@Override
 	public boolean remove(int index) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		if(index < 0 || index > numElts-1) {
+			return false;
+		}
+		
+		//being here means given index is valid so create new node to insert
+		
+		if(index == 0)  { // removing head
+			headCell.next.prev = null;
+			headCell = headCell.next;
+			return goodDeletion();
+		}
+		
+		if(index == numElts-1) { //removing last 
+			lastCell.prev.next = null;
+			lastCell = lastCell.prev;
+			return goodDeletion();
+		}
+		
+		Node currentNode = headCell;
+		for(int i = 0; i < index; i++) {
+			currentNode = currentNode.next;
+		}
+		currentNode.prev.next = currentNode.next;
+		currentNode.next.prev = currentNode.prev;
+		return goodDeletion();
 	}
 
 	@Override
@@ -120,6 +145,11 @@ public class LinkedListImpl implements LIST_Interface {
 	
 	private boolean goodInsert() {
 		numElts++;
+		return true;
+	}
+	
+	private boolean goodDeletion() {
+		numElts--;
 		return true;
 	}
 }

@@ -7,15 +7,17 @@ public class LinkedListPlayground {
 		
 		LinkedListImpl myList = new LinkedListImpl();
 		
-		Random r = new Random();
-		for(int i = 0; i < 10; i++) {
-			int myInt = r.nextInt(20);
-			myList.insert(myInt, 0);
-		}
+		myList.insert(2, 0);
+		myList.insert(5, 1);
+		myList.insert(8, 0);
+		myList.insert(92, 1);
+		myList.insert(20, 4);
 		
+		// 8, 92, 2, 5
+		
+		myList.remove(2);
 		printList(myList);
-		
-		System.out.println(myList.get(6));
+
 	}
 
 	public static void printList(LinkedListImpl L){ 
