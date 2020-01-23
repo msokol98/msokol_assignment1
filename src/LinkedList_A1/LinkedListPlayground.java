@@ -10,11 +10,12 @@ public class LinkedListPlayground {
 		Random r = new Random();
 		for(int i = 0; i < 10; i++) {
 			int myInt = r.nextInt(20);
-			System.out.println(myInt);
 			myList.insert(myInt, 0);
 		}
 		
 		printList(myList);
+		
+		System.out.println(myList.get(6));
 	}
 
 	public static void printList(LinkedListImpl L){ 

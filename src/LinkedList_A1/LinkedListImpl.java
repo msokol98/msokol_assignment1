@@ -91,7 +91,11 @@ public class LinkedListImpl implements LIST_Interface {
 	@Override
 	public double get(int index) {
 		// TODO Auto-generated method stub
-		return 0;
+		Node currentNode = headCell;
+		for(int i = 0; i < index; i++) {
+			currentNode = currentNode.next;
+		}
+		return currentNode.getData();
 	}
 
 	@Override
