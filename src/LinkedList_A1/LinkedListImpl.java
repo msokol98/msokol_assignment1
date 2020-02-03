@@ -85,10 +85,17 @@ public class LinkedListImpl implements LIST_Interface {
 		if(headCell == null || headCell.getData() > newNode.getData()) {
 			newNode.next = headCell;
 			headCell = newNode;
+			
+			if(headCell.next != null) {
+				headCell.next.prev = headCell;
+			} else {
+				lastCell = newNode;
+			}
+			
 			return goodInsert();
 		}
 		
-		
+		//second one has no prev to first
 		Node currentNode = headCell;
 		
 		while(currentNode.next != null &&
@@ -146,6 +153,11 @@ public class LinkedListImpl implements LIST_Interface {
 	@Override
 	public double get(int index) {
 		// TODO Auto-generated method stub
+		
+		if(index < 0 || index > numElts-1) {
+			return Double.NaN;
+		}
+		
 		Node currentNode = headCell;
 		for(int i = 0; i < index; i++) {
 			currentNode = currentNode.next;

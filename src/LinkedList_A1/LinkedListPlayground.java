@@ -7,11 +7,16 @@ public class LinkedListPlayground {
 		
 		LinkedListImpl myList = new LinkedListImpl();
 		
-		for(int i = 0; i < 15; i++) {
-			myList.insort(new Random().nextInt(20));
+		for(int i = 0; i < 1000; i++) {
+			myList.insort(new Random().nextInt(1000));
 		}
 		
-		printList(myList);
+		Node cn = myList.lastCell;
+		for(int i = 0; i < 1000; i++) {
+			System.out.println(cn.data);
+			cn = cn.prev;
+		}
+		
 		
 
 	}
