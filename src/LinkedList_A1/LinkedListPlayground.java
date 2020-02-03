@@ -1,22 +1,39 @@
 package LinkedList_A1;
 
-import java.util.Random;
+import java.util.Scanner;
 
 public class LinkedListPlayground {
 	public static void main(String[] args) {
 		
 		LinkedListImpl myList = new LinkedListImpl();
 		
-		for(int i = 0; i < 1000; i++) {
-			myList.insort(new Random().nextInt(1000));
+		Scanner sn = new Scanner(System.in);
+		
+		double input = sn.nextDouble();
+		int index = sn.nextInt();
+		
+		while(input != -1 && index != -1) {
+			myList.insert(input, index);
+			printList(myList);
+			
+			input = sn.nextDouble();
+			index = sn.nextInt();
 		}
 		
-		Node cn = myList.lastCell;
-		for(int i = 0; i < 1000; i++) {
-			System.out.println(cn.data);
-			cn = cn.prev;
+		index = sn.nextInt();
+		
+		while(index != -1) {
+			myList.remove(index);
+			printList(myList);
+			
+			index = sn.nextInt();
 		}
 		
+		
+		
+		
+		
+		sn.close();
 		
 
 	}

@@ -130,7 +130,7 @@ public class LinkedListImpl implements LIST_Interface {
 		//being here means given index is valid so create new node to insert
 		
 		if(index == 0)  { // removing head
-			headCell.next.prev = null;
+			if(headCell.next != null) headCell.next.prev = null;
 			headCell = headCell.next;
 			return goodDeletion();
 		}
